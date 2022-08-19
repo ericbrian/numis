@@ -1,0 +1,27 @@
+{
+  "name": "numis",
+  "version": "1.0.0",
+  "description": "## DB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericbrian/numis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericbrian/numis/issues"
+  },
+  "homepage": "https://github.com/ericbrian/numis#readme",
+  "dependencies": {
+    "sequelize": "^6.21.4",
+    "sqlite3": "^5.0.11"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.4.1"
+  }
+}
