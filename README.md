@@ -17,3 +17,10 @@ I've been using `schemacrawler` to create ERDs using these options:
         -outputformat png \
         -loglevel INFO \
         -outputfile numis_db.png
+
+
+## Postgres DB
+
+To start the DB and interface, use:
+
+    docker-compose -f stack.yml up

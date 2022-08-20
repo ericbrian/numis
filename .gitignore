@@ -135,3 +135,6 @@ dist
 database/.DS_Store
 numis_db.png
 .DS_Store
+
+
+*secret*

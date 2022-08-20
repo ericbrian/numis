@@ -2,9 +2,8 @@
 -- ------------------------------------------------------
 
 CREATE TABLE shape (
-    id   INTEGER NOT NULL,
-    name TEXT    NOT NULL,
-    PRIMARY KEY (id)
+    id   SERIAL PRIMARY KEY,
+    name TEXT    NOT NULL
 );
 
 INSERT INTO shape (name,id)
@@ -28,41 +27,39 @@ VALUES
 -- ------------------------------------------------------
 
 CREATE TABLE country (
-    id   INTEGER NOT NULL,
-    name TEXT,
-    PRIMARY KEY (id)
+    id   SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    short_name TEXT NOT NULL
 );
 
-INSERT INTO country (name,id)
+INSERT INTO country (name,short_name,id)
 VALUES
-    ('Federal Republic of Germany',1),
-    ('United States of America',2),
-    ('Republic of Panama',3),
-    ('Republic of the Marshall Islands',4),
-    ('Canada',5),
-    ('Republic of Austria ',6),
-    ('Republic of Malta ',7),
-    ('United Kingdom',8);
+    ('Germany, Federal Republic of', 'Germany', 1),
+    ('United States of America', 'USA', 2),
+    ('Panama, Republic of', 'Panama', 3),
+    ('Marshall Islands, Republic of the', 'Marshall Islands', 4),
+    ('Canada', 'Canada', 5),
+    ('Austria, Republic of', 'Austria', 6),
+    ('Malta, Republic of', 'Malta', 7),
+    ('United Kingdom', 'UK', 8);
 
 -- ------------------------------------------------------
 
  CREATE TABLE image (
-    id          INTEGER NOT NULL,
+    id   SERIAL PRIMARY KEY,
     url         TEXT,
     hash        TEXT,
     copyright   TEXT,
-    description TEXT,
-    PRIMARY KEY (id)
+    description TEXT
 );
 
 -- ------------------------------------------------------
 
 CREATE TABLE mint (
-    id          INTEGER NOT NULL,
+    id   SERIAL PRIMARY KEY,
     mark        TEXT    NOT NULL,
     description TEXT,
     country_id  INTEGER NOT NULL,
-    PRIMARY KEY (id),
     FOREIGN KEY (country_id) REFERENCES country (id)
 );
 
@@ -86,13 +83,13 @@ VALUES
 -- ------------------------------------------------------
 
 CREATE TABLE grade (
-    id          INTEGER NOT NULL,
+    id   SERIAL PRIMARY KEY,
     short_grade TEXT,
-    sort_order  INTEGER NOT NULL DEFAULT (0),
-    PRIMARY KEY (id)
+    name TEXT,
+    sort_order  INTEGER NOT NULL DEFAULT (0)
 );
 
-INSERT INTO grade (sort_order,short_grade,grade,id)
+INSERT INTO grade (sort_order,short_grade,name,id)
 VALUES
     (2,'BU','Brilliant Uncirculated',1),
     (3,'BU-UNC','Brilliant Uncirculated - Uncirculated',2),
@@ -120,33 +117,50 @@ VALUES
 -- ------------------------------------------------------
 
 CREATE TABLE currency (
-    id               INTEGER NOT NULL,
+    id   SERIAL PRIMARY KEY,
     name             TEXT    NOT NULL,
     short_name       TEXT,
     years            TEXT    NOT NULL,
     demonitized_date TEXT,
-    country_id       INTEGER NOT NULL,
-    comments         TEXT,
-    PRIMARY KEY (id),
+    comments         TEXT
+);
+
+INSERT INTO currency (comments,demonitized_date,years,short_name,name,id)
+VALUES
+    (NULL,NULL,'1690 - Present','US$','US Dollar',1),
+    (NULL,'2002-03-01','1948 - 2002','DM','Deutsche Mark',2),
+    ('No value coins exist as is the case, for example, with the commemorative dollar coins that the Marshall Islands makes. ',NULL,'','$','Dollar with no value',3),
+    (NULL,NULL,'1867 - Present','$','Canadian Dollar',4),
+    (NULL,NULL,'1904 - Present','PAB','Panamanian Balboa',5),
+    (NULL,NULL,'2002 - Present','€','Euro',6),
+    (NULL,NULL,'1971 - Present','£','Pound Sterling (GBP) ',7);
+
+-- ------------------------------------------------------
+
+CREATE TABLE currency_country (
+    id   SERIAL PRIMARY KEY,
+    currency_id INTEGER NOT NULL,
+    country_id INTEGER NOT NULL,
+    FOREIGN KEY (currency_id) REFERENCES currency (id),
     FOREIGN KEY (country_id) REFERENCES country (id)
 );
 
-INSERT INTO currency (comments,country_id,demonitized_date,years,short_name,name,id)
+INSERT INTO "currency_country" ("id", "currency_id", "country_id")
 VALUES
-    (NULL,2,NULL,'1690 - Present','US$','US Dollar',1),
-    (NULL,1,'2002-03-01','1948 - 2002','DM','Deutsche Mark',2),
-    ('No value coins exist as is the case, for example, with the commemorative dollar coins that the Marshall Islands makes. ',4,NULL,'','$','Dollar with no value',3),
-    (NULL,5,NULL,'1867 - Present','$','Canadian Dollar',4),
-    (NULL,3,NULL,'1904 - Present','PAB','Panamanian Balboa',5),
-    (NULL,1,NULL,'2002 - Present','€','Euro',6),
-    (NULL,6,NULL,'2002 - Present','€','Euro',7),
-    (NULL,7,NULL,'2008 - Present','€','Euro',8),
-    (NULL,8,NULL,'1971 - Present','£','Pound Sterling (GBP) ',9);
+    (1, 6, 1),
+    (2, 6, 6),
+    (3, 6, 7),
+    (4, 2, 1),
+    (5, 1, 2),
+    (6, 4, 3),
+    (7, 5, 4),
+    (8, 3, 5),
+    (9, 7, 8);
 
 -- ------------------------------------------------------
 
 CREATE TABLE coin (
-    id                  INTEGER NOT NULL,
+    id   SERIAL PRIMARY KEY,
     face_value          TEXT    NOT NULL,
     currency_id         INTEGER NOT NULL,
     obverse_description TEXT    NOT NULL,
@@ -161,7 +175,6 @@ CREATE TABLE coin (
     shape_id            INTEGER,
     comments            TEXT,
     country_id          INTEGER,
-    PRIMARY KEY (id),
     FOREIGN KEY (currency_id) REFERENCES currency (id),
     FOREIGN KEY (shape_id) REFERENCES shape (id),
     FOREIGN KEY (country_id) REFERENCES country (id)
@@ -170,10 +183,9 @@ CREATE TABLE coin (
 -- ------------------------------------------------------
 
 CREATE TABLE coin_image (
-    id       INTEGER NOT NULL,
+    id   SERIAL PRIMARY KEY,
     coin_id  INTEGER NOT NULL,
     image_id INTEGER NOT NULL,
-    PRIMARY KEY (id),
     FOREIGN KEY (coin_id) REFERENCES coin (id),
     FOREIGN KEY (image_id) REFERENCES image (id)
 );
@@ -181,7 +193,7 @@ CREATE TABLE coin_image (
 -- ------------------------------------------------------
 
 CREATE TABLE collection (
-    id               INTEGER NOT NULL,
+    id   SERIAL PRIMARY KEY,
     coin_id          INTEGER,
     year             TEXT,
     mint_id          INTEGER,
@@ -192,8 +204,7 @@ CREATE TABLE collection (
     sourced_from     TEXT,
     sourced_when     TEXT,
     is_cleaned       BOOLEAN NOT NULL DEFAULT (false),
-    PRIMARY KEY (id),
-    FOREIGN KEY (mint_id) REFERENCES mint (id)
+    FOREIGN KEY (mint_id) REFERENCES mint (id),
     FOREIGN KEY (paid_currency_id) REFERENCES currency (id),
     FOREIGN KEY (grade_id) REFERENCES grade (id),
     FOREIGN KEY (coin_id) REFERENCES coin (id)
