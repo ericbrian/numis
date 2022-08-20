@@ -21,6 +21,15 @@ I've been using `schemacrawler` to create ERDs using these options:
 
 ## Postgres DB
 
+Create an `.env` file and populate with these values:
+
+    POSTGRES_USER=< user name >
+    POSTGRES_PASSWORD=< user p/w >
+    POSTGRES_DB=numis
+
+
 To start the DB and interface, use:
 
     docker-compose -f stack.yml up
+
+ISSUE: DB data file isn't saved to local drive. Why???
