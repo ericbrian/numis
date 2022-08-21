@@ -33,3 +33,13 @@ To start the DB and interface, use:
     docker-compose -f stack.yml up
 
 ISSUE: DB data file isn't saved to local drive. Why???
+
+## Using Migrations
+
+To Build, run:
+
+    npx knex migrate:latest --knexfile db/knexfile.js
+
+To Destroy, run:
+
+    npx knex migrate:latest --knexfile db/knexfile.js

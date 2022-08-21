@@ -104,6 +104,7 @@ VALUES
     ,(5,'Bayerisches Hauptmünzamt','Munich',1)
     ,(6,'Hamburgische Münze','Hamburg',1)
     ,(7,'US Mint','Washington DC',2)
+    ,(8,'Royal Mint (1968-date)','Llantrisant',8)
 ;
 
 -- ------------------------------------------------------
@@ -117,22 +118,22 @@ CREATE TABLE mintmark (
     FOREIGN KEY (mint_id) REFERENCES mint (id)
 );
 
-INSERT INTO mintmark (description,mark,id,mint_id,period)
+INSERT INTO mintmark (id,description,mark,id,mint_id,period)
 VALUES
-    ('Stuttgart','F',1,2,'1872 - Present'),
-    ('Karlsruhe','G',2,3,'1872 - Present'),
-    ('Berlin','A',3,4,'1750 - Present'),
-    ('Munich','D',4,5,'1871 - Present'),
-    ('Hamburg','J',5,6,'1873 - Present'),
-    ('Dahlonega, GA','D',6,7,'1838 - 1861'),
-    ('Charlotte, NC','C',7,7,'1849-55, 1857, and 1859'),
-    ('New Orleans, LA','O',8,7,'1838 - 1861 & 1879 - 1909'),
-    ('San Francisco, CA','S',9,7,'1854 - Present'),
-    ('Carson City, NV','CC',10,7,'1870 - 1893'),
-    ('Manila, Phillipines','M',11,7,'1920 - 1941'),
-    ('Philadelphia, PA','P',12,7,'1792 - Present'),
-    ('Denver, CO','D',13,7,'1863 - Present'),
-    ('West Point','W',14,7,'1937 - Present');
+    (1,'Stuttgart','F',1,2,'1872 - Present'),
+    (2,'Karlsruhe','G',2,3,'1872 - Present'),
+    (3,'Berlin','A',3,4,'1750 - Present'),
+    (4,'Munich','D',4,5,'1871 - Present'),
+    (5,'Hamburg','J',5,6,'1873 - Present'),
+    (6,'Dahlonega, GA','D',6,7,'1838 - 1861'),
+    (7,'Charlotte, NC','C',7,7,'1849-55, 1857, and 1859'),
+    (8,'New Orleans, LA','O',8,7,'1838 - 1861 & 1879 - 1909'),
+    (9,'San Francisco, CA','S',9,7,'1854 - Present'),
+    (10,'Carson City, NV','CC',10,7,'1870 - 1893'),
+    (11,'Manila, Phillipines','M',11,7,'1920 - 1941'),
+    (12,'Philadelphia, PA','P',12,7,'1792 - Present'),
+    (13,'Denver, CO','D',13,7,'1863 - Present'),
+    (14,'West Point, NY','W',14,7,'1937 - Present');
 
 -- ------------------------------------------------------
 
@@ -224,6 +225,8 @@ INSERT INTO designer (id,name,comment)
 VALUES
      (1,'Reinhart Heinsdorff','Born on September 22nd, 1923 in Rimsting, he grew up in Munich and died March 26th, 2002 in Friedberg-Ottmaring. He has become well known for designing many coins used in Germany and Europe, along with being a painter and sculptor.')
     ,(2,'Charles E. Barber','Charles Edward Barber was the sixth Chief Engraver of the United States Mint from 1879 until his death in 1917. Although Barber''s coins were met with mixed reviews, he had a long and fruitful career in coinage, designing most of the coins used at the mint during his time as Chief Engraver.')
+    ,(3,'John Bergdahl',null)
+    ,(4,'Doris Waschk-Balz',null)
 ;
 
 
