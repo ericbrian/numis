@@ -9,6 +9,9 @@ exports.up = function (knex) {
             table.string('name').notNullable().unique();
             table.timestamps(true, true);
         })
+        .table('shape', function (t) {
+            t.index(['name']);
+        })
         .createTable('country', table => {
             table.increments('id');
             table.string('name').notNullable();
@@ -42,7 +45,7 @@ exports.up = function (knex) {
         })
         .createTable('grade', table => {
             table.increments('id');
-            table.string('name').notNullable();
+            table.string('name').notNullable().unique();
             table.string('short_name');
             table.integer('sort_order');
             table.timestamps(true, true);
@@ -66,7 +69,7 @@ exports.up = function (knex) {
         })
         .createTable('designer', table => {
             table.increments('id');
-            table.string('name').notNullable();
+            table.string('name').notNullable().unique();
             table.string('comment');
             table.timestamps(true, true);
         })
@@ -113,26 +116,6 @@ exports.up = function (knex) {
             table.foreign('image_id').references('image.id');
             table.timestamps(true, true);
         })
-        .createTable('collection', table => {
-            table.increments('id');
-            table.integer('coin_id').notNullable();
-            table.foreign('coin_id').references('coin.id');
-            table.string('years').notNullable();
-            table.integer('mint_id');
-            table.foreign('mint_id').references('mint.id');
-            table.integer('mintmark_id');
-            table.foreign('mintmark_id').references('mintmark.id');
-            table.integer('grade_id');
-            table.foreign('grade_id').references('grade.id');
-            table.string('condition');
-            table.decimal('paid_amount', 5, 2);
-            table.integer('paid_currency_id');
-            table.foreign('paid_currency_id').references('currency.id');
-            table.string('sourced_from');
-            table.string('sourced_when');
-            table.boolean('is_cleaned').defaultTo('false');
-            table.timestamps(true, true);
-        })
         .createTable('coinset', table => {
             table.increments('id');
             table.string('name').notNullable();
@@ -146,7 +129,28 @@ exports.up = function (knex) {
             table.foreign('coin_id').references('coin.id');
             table.timestamps(true, true);
         })
-        ;
+        .createTable('collection', table => {
+            table.increments('id');
+            table.integer('coin_id').notNullable();
+            table.foreign('coin_id').references('coin.id');
+            table.integer('coinset_id').notNullable();
+            table.foreign('coinset_id').references('coinset.id');
+            table.string('years').notNullable();
+            table.integer('mint_id');
+            table.foreign('mint_id').references('mint.id');
+            table.integer('mintmark_id');
+            table.foreign('mintmark_id').references('mintmark.id');
+            table.integer('grade_id');
+            table.foreign('grade_id').references('grade.id');
+            table.string('condition');
+            table.decimal('paid_amount', 5, 2);
+            table.integer('paid_currency_id');
+            table.foreign('paid_currency_id').references('currency.id');
+            table.string('sourced_from');
+            table.date('sourced_when');
+            table.boolean('is_cleaned').defaultTo('false');
+            table.timestamps(true, true);
+        });
 };
 
 /**
@@ -155,9 +159,9 @@ exports.up = function (knex) {
  */
 exports.down = function (knex) {
     return knex.schema
+        .dropTable('collection')
         .dropTable('coinset_coin')
         .dropTable('coinset')
-        .dropTable('collection')
         .dropTable('coin_image')
         .dropTable('coin_mintmark')
         .dropTable('coin')

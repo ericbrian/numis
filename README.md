@@ -36,6 +36,8 @@ ISSUE: DB data file isn't saved to local drive. Why???
 
 ## Using Migrations
 
+Some great examnples are found here: http://perkframework.com/v1/guides/database-migrations-knex.html
+
 To Build, run:
 
     npx knex migrate:latest --knexfile db/knexfile.js
