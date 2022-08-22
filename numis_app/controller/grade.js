@@ -1,7 +1,7 @@
-class ShapeController {
-    async createShape(req, res) {
+class GradeController {
+    async createGrade(req, res) {
         try {
-            const id = await shapeService.createShape(req.body);
+            const id = await gradeService.createGrade(req.body);
             res.status(201).json(id);
         } catch (err) {
             console.error(err);
@@ -10,4 +10,4 @@ class ShapeController {
     }
 }
 
-module.exports = new ShapeController();
+module.exports = new GradeController();

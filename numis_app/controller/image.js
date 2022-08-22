@@ -1,7 +1,7 @@
-class ShapeController {
-    async createShape(req, res) {
+class ImageController {
+    async createImage(req, res) {
         try {
-            const id = await shapeService.createShape(req.body);
+            const id = await imageService.createImage(req.body);
             res.status(201).json(id);
         } catch (err) {
             console.error(err);
@@ -10,4 +10,4 @@ class ShapeController {
     }
 }
 
-module.exports = new ShapeController();
+module.exports = new ImageController();
