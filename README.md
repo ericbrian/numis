@@ -1,5 +1,7 @@
 # numis
 
+This project is an effort to create a DB to capture the inventory of my collected coins. Sure, there are others out there but this one is my opinion! :)
+
 ## DB
 
 The sql to produce the tables and to seed data.
