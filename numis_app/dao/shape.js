@@ -1,13 +1,13 @@
 const db = require("../db/db");
 
-class PersonDAO {
+class ShapeDAO {
     async createShape(name) {
-        const [id] = await db('shape').insert({
-            name
-        }).returning('id');
+        const [id] = await db('shape')
+            .insert({ name })
+            .returning('id');
 
         return id;
     }
 }
 
-module.exports = new PersonDAO();
+module.exports = new ShapeDAO();

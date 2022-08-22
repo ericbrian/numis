@@ -38,8 +38,8 @@ exports.up = function (knex) {
             table.increments('id');
             table.string('mark').notNullable();
             table.string('description');
-            table.integer('mind_id');
-            table.foreign('mind_id').references('mint.id');
+            table.integer('mint_id');
+            table.foreign('mint_id').references('mint.id');
             table.string('period');
             table.timestamps(true, true);
         })
