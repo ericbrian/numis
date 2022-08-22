@@ -6,8 +6,11 @@ class CountryService {
             name,
             short_name
         } = countryDto;
-        return countryDAO.createCountry(name,
-            short_name);
+        return countryDAO.createCountry(name, short_name);
+    }
+
+    getCountries() {
+        countryDAO.getCountries();
     }
 }
 

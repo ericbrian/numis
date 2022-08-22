@@ -11,6 +11,10 @@ class CountryDAO {
 
         return id;
     }
+
+    async getCountries() {
+        return db('country').select();
+    }
 }
 
 module.exports = new CountryDAO();
