@@ -1,4 +1,5 @@
 const express = require('express');
+const appstrings = require('../appstrings');
 
 const router = express.Router();
 
@@ -82,7 +83,7 @@ router.post('/shape', ShapeController.createShape);
 //
 router.get('/', function (_req, res, _next) {
     res.render('index', {
-        title: 'Express'
+        title: appstrings.app_name
     });
 });
 
