@@ -6,7 +6,6 @@ This project is an effort to create a DB to capture the inventory of my collecte
 
 The sql to produce the tables and to seed data.
 
-
 ## ERD Generator
 
 I've been using `schemacrawler` to create ERDs using these options:
@@ -20,7 +19,6 @@ I've been using `schemacrawler` to create ERDs using these options:
         -loglevel INFO \
         -outputfile numis_db.png
 
-
 ## Postgres DB
 
 Create an `.env` file and populate with these values:
@@ -28,7 +26,6 @@ Create an `.env` file and populate with these values:
     POSTGRES_USER=< user name >
     POSTGRES_PASSWORD=< user p/w >
     POSTGRES_DB=numis
-
 
 To start the DB and interface, use:
 
@@ -47,3 +44,7 @@ To Build, run:
 To Destroy, run:
 
     npx knex migrate:latest --knexfile db/knexfile.js
+
+To run the seed file, execute:
+
+    npx knex seed:run --knexfile db/knexfile.js
