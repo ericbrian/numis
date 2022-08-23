@@ -1,5 +1,5 @@
 const coinsetService = require('../service/coinset');
-const appStrings = requre('./appstrings');
+const appStrings = require('./appstrings');
 
 class CoinsetController {
 

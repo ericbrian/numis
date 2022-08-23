@@ -1,5 +1,5 @@
 const imageService = require('../service/image');
-const appStrings = requre('./appstrings');
+const appStrings = require('./appstrings');
 
 class ImageController {
 

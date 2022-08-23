@@ -1,5 +1,5 @@
 const designerService = require('../service/designer');
-const appStrings = requre('./appstrings');
+const appStrings = require('./appstrings');
 
 class DesignerController {
     async getDesigners(req, res) {

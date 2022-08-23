@@ -1,5 +1,5 @@
 const coinMintmarkService = require('../service/coinmintmark');
-const appStrings = requre('./appstrings');
+const appStrings = require('./appstrings');
 
 class CoinMintmarkController {
 

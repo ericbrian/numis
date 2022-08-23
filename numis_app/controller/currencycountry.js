@@ -1,5 +1,5 @@
 const currencyCountryService = require('../service/currencycountry');
-const appStrings = requre('./appstrings');
+const appStrings = require('./appstrings');
 
 class CurrencyCountryController {
 

@@ -1,5 +1,5 @@
 const mintmarkService = require('../service/mintmark');
-const appStrings = requre('./appstrings');
+const appStrings = require('./appstrings');
 
 class MintmarkController {
 

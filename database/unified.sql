@@ -25,8 +25,6 @@ CREATE TABLE shape
     name TEXT NOT NULL
 );
 
-CREATE INDEX "shape_name" ON "public"."shape" USING btree ('name');
-
 INSERT INTO shape
     (name,id)
 VALUES

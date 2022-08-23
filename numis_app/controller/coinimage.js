@@ -1,5 +1,5 @@
 const coinImageService = require('../service/coinimage');
-const appStrings = requre('./appstrings');
+const appStrings = require('./appstrings');
 
 class CoinImageController {
 

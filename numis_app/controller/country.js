@@ -1,5 +1,5 @@
 const countryService = require('../service/country');
-const appStrings = requre('./appstrings');
+const appStrings = require('./appstrings');
 
 class CountryController {
     async createCountry(req, res) {
