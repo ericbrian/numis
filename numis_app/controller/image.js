@@ -1,11 +1,25 @@
+const imageService = require('../service/image');
+const appStrings = requre('./appstrings');
+
 class ImageController {
+
+    async getImages(req, res) {
+        try {
+            const items = await gradeService.getImages(req.params.coin_id);
+            res.status(200).json(items);
+        } catch (err) {
+            console.error(err);
+            res.status(500).json(appStrings.GENERIC_500);
+        }
+    }
+
     async createImage(req, res) {
         try {
             const id = await imageService.createImage(req.body);
-            res.status(201).json(id);
+            res.status(200).json(id);
         } catch (err) {
             console.error(err);
-            res.status(500).json('something went wrong');
+            res.status(500).json(appStrings.GENERIC_500);
         }
     }
 }

@@ -10,7 +10,7 @@ class CountryService {
     }
 
     getCountries() {
-        countryDAO.getCountries();
+        return countryDAO.getCountries();
     }
 }
 

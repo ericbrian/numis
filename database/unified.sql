@@ -64,7 +64,7 @@ VALUES
     ('Austria, Republic of', 'Austria', 6),
     ('Malta, Republic of', 'Malta', 7),
     ('United Kingdom', 'UK', 8),
-    ('The Netherlands', 'Netherlands', 9);
+    ('Netherlands', 'Netherlands', 9);
 
 -- ------------------------------------------------------
 

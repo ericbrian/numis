@@ -1,11 +1,25 @@
+const coinService = require('../service/coin');
+const appStrings = requre('./appstrings');
+
 class CoinController {
     async createCoin(req, res) {
         try {
             const id = await coinService.createCoin(req.body);
-            res.status(201).json(id);
+            res.status(200).json(id);
         } catch (err) {
             console.error(err);
-            res.status(500).json('something went wrong');
+            res.status(500).json(appStrings.GENERIC_500);
+        }
+    }
+
+    async getCoins(_req, res) {
+        try {
+            const items = await coinService.getCoins();
+            res.status(200).json(items);
+
+        } catch (err) {
+            console.error(err);
+            res.status(500).json(appStrings.GENERIC_500);
         }
     }
 }
