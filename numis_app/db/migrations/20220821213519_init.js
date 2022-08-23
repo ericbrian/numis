@@ -20,9 +20,9 @@ exports.up = function (knex) {
         })
         .createTable('image', table => {
             table.increments('id');
-            table.string('url');
-            table.string('base64encoding');
-            table.string('copyright');
+            table.text('url');
+            table.text('base64encoding');
+            table.text('copyright');
             table.string('description');
             table.timestamps(true, true);
         })
@@ -70,7 +70,7 @@ exports.up = function (knex) {
         .createTable('designer', table => {
             table.increments('id');
             table.string('name').notNullable().unique();
-            table.string('comment');
+            table.text('comment');
             table.timestamps(true, true);
         })
         .createTable('coin', table => {
