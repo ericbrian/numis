@@ -1,5 +1,5 @@
 const coinService = require('../service/coin');
-const appStrings = require('./appstrings');
+const appStrings = require('../appstrings');
 
 class CoinController {
     async createCoin(req, res) {

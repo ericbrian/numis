@@ -1,5 +1,5 @@
 const mintService = require('../service/mint');
-const appStrings = require('./appstrings');
+const appStrings = require('../appstrings');
 
 class MintController {
 

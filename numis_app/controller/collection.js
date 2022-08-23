@@ -1,5 +1,5 @@
 const collectionService = require('../service/collection');
-const appStrings = require('./appstrings');
+const appStrings = require('../appstrings');
 
 class CollectionController {
 

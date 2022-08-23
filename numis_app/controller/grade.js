@@ -1,5 +1,5 @@
 const gradeService = require('../service/grade');
-const appStrings = require('./appstrings');
+const appStrings = require('../appstrings');
 
 class GradeController {
 
