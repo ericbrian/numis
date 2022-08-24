@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "af939d79-8a35-4f85-a8fa-0b572f2bce27",
+		"name": "Numis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9052441"
+	},
+	"item": [
+		{
+			"name": "Get All Coins",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/coins",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"coins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Grades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/grades",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"grades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Countries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/countries",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"countries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Mints",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/mints",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"mints"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Collections",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/collections",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"collections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Coinsets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/coinsets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"coinsets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cointset by Coinset ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/coinsetcoins/1",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"coinsetcoins",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Currencies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/currencies",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"currencies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Designers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/designers",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"designers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Shapes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/shapes",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"shapes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Coin Images By Coin ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/coinImages/1",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"coinImages",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Coin Mints By Coin ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/coinMintmarks/1",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"coinMintmarks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Currency for Country By Country ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/currencyCountries/6",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"currencyCountries",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Country for Currency By Currency ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/countryCurrencies/1",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"countryCurrencies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Mintmarks for Country By Mint ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/mintmarks/7",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"mintmarks",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
