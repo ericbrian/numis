@@ -1,6 +1,11 @@
 const collectionDAO = require('../dao/collection');
 
 class CollectionService {
+
+    getCollections() {
+        return collectionDAO.getCollections();
+    }
+
     createCollection(collectionDto) {
         const {
             coin_id,

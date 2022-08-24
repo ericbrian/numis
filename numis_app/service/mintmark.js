@@ -1,6 +1,11 @@
 const mintmarkDAO = require('../dao/mintmark');
 
 class MintmarkService {
+
+    getMintmarks() {
+        return mintmarkDAO.getMintmarks();
+    }
+
     createMintmark(mintmarkDto) {
         const {
             mark,

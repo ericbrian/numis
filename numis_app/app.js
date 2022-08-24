@@ -8,6 +8,7 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const apiErrorHandler = require('./error/api-error-handler');
 
 const app = express();
 
@@ -41,5 +42,7 @@ app.use(function (err, req, res, _next) {
     res.status(err.status || 500);
     res.render('error');
 });
+
+app.use(apiErrorHandler);
 
 module.exports = app;

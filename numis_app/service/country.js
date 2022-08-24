@@ -1,6 +1,11 @@
 const countryDAO = require('../dao/country');
 
 class CountryService {
+
+    getCountries() {
+        return countryDAO.getCountries();
+    }
+
     createCountry(countryDto) {
         const {
             name,
@@ -9,9 +14,6 @@ class CountryService {
         return countryDAO.createCountry(name, short_name);
     }
 
-    getCountries() {
-        return countryDAO.getCountries();
-    }
 }
 
 module.exports = new CountryService();

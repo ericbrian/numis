@@ -1,6 +1,11 @@
 const coinsetCoinDAO = require('../dao/coinsetcoin');
 
 class CoinsetCoinService {
+
+    getCoinsetCoins() {
+        return coinsetCoinDAO.getCoinsetCoins();
+    }
+
     createCoinsetCoin(coinsetCoinDto) {
         const {
             coinset_id,

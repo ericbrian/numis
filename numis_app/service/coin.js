@@ -1,6 +1,11 @@
 const coinDAO = require('../dao/coin');
 
 class CoinService {
+
+    getCoins() {
+        return coinDAO.getCoins();
+    }
+
     createCoin(coinDto) {
         const {
             face_value,

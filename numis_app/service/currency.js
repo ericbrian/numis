@@ -1,6 +1,11 @@
 const currencyDAO = require('../dao/currency');
 
 class CurrencyService {
+
+    getCurrencies() {
+        return currencyDAO.getCurrencies();
+    }
+
     createCurrency(currencyDto) {
         const {
             name,

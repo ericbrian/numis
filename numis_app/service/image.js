@@ -1,6 +1,11 @@
 const imageDAO = require('../dao/image');
 
 class ImageService {
+
+    getImages() {
+        return imageDAO.getImages();
+    }
+
     createImage(imageDto) {
         const {
             url,
