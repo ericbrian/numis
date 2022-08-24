@@ -5,12 +5,12 @@ const ApiError = require('../error/ApiError');
 class CoinImageController {
 
     // GET /coinImages/:coin_id
-    async getCoinImages(req, res, next) {
+    async getCoinImagesByCoinId(req, res, next) {
         try {
             const coin_id = req.params.coin_id;
             if (isNaN(coin_id))
                 throw new Error('Coin Id is required!')
-            const items = await coinImageService.getCoinImages(coin_id);
+            const items = await coinImageService.getCoinImagesByCoinId(coin_id);
             res.status(200).json(items);
 
         } catch (err) {

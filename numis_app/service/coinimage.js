@@ -2,8 +2,8 @@ const coinImageDAO = require('../dao/coinimage');
 
 class CoinImageService {
 
-    getCoinImages() {
-        return coinImageDAO.getCoinImages();
+    getCoinImagesByCoinId(coin_id) {
+        return coinImageDAO.getCoinImagesByCoinId(coin_id);
     }
 
     createCoinImage(coinImageDto) {

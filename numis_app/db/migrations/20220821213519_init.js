@@ -29,7 +29,6 @@ exports.up = function (knex) {
         .createTable('mint', table => {
             table.increments('id');
             table.string('name').notNullable();
-            table.string('location');
             table.integer('country_id');
             table.foreign('country_id').references('country.id');
             table.timestamps(true, true);

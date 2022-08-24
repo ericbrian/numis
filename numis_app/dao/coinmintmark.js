@@ -5,8 +5,10 @@ class CoinMintmarkDAO {
 
     table_name = 'coin_mintmark';
 
-    async getCoinMintmarks() {
-        return db(this.table_name).select();
+    async getCoinMintmarksByCoin(coin_id) {
+        return db(this.table_name)
+            .where({ coin_id })
+            .select();
     }
 
     async createCoinMintmark(coin_id, mintmark_id) {

@@ -4,8 +4,10 @@ class CoinImageDAO {
 
     table_name = 'coin_image';
 
-    async getCoinImages() {
-        return db(this.table_name).select();
+    async getCoinImagesByCoinId(coin_id) {
+        return db(this.table_name)
+            .where({ coin_id })
+            .select();
     }
 
     async createCoinImage(coin_id, image_id) {

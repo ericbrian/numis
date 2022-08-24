@@ -5,7 +5,8 @@ class DesignerDAO {
     table_name = 'designer';
 
     async getDesigners() {
-        return db(this.table_name).select();
+        return db(this.table_name)
+            .select('id', 'name', 'comment');
     }
 
     async createDesigner(name, comment) {

@@ -2,8 +2,8 @@ const coinMintmarkDAO = require('../dao/coinmintmark');
 
 class CoinMintmarkService {
 
-    getCoinMintmarks() {
-        return coinMintmarkDAO.getCoinMintmarks();
+    getCoinMintmarksByCoin(coin_id) {
+        return coinMintmarkDAO.getCoinMintmarksByCoin(coin_id);
     }
 
     createCoinMintmark(coinMintmarkDto) {

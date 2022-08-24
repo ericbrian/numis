@@ -5,7 +5,8 @@ class CurrencyDAO {
     table_name = 'currency';
 
     async getCurrencies() {
-        return db(this.table_name).select();
+        return db(this.table_name)
+            .select('id', 'name', 'short_name', 'years', 'demonitized_date', 'comments');
     }
 
     async createCurrency(name, short_name, years, demonitized_date, comments) {

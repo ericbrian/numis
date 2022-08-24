@@ -4,6 +4,7 @@ const ApiError = require('../error/ApiError');
 
 class CoinController {
 
+    // GET /coins
     async getCoins(_req, res, next) {
         try {
             const items = await coinService.getCoins();
@@ -15,6 +16,7 @@ class CoinController {
         }
     }
 
+    // POST /coin
     async createCoin(req, res, next) {
         try {
             const id = await coinService.createCoin(req.body);

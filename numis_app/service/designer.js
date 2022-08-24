@@ -2,8 +2,8 @@ const designerDAO = require('../dao/designer');
 
 class DesignerService {
 
-    getDesigner() {
-        return designerDAO.getDesigner();
+    getDesigners() {
+        return designerDAO.getDesigners();
     }
 
     createDesigner(designerDto) {

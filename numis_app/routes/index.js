@@ -24,7 +24,7 @@ router.get('/coins', CoinController.getCoins)
 router.post('/coin', CoinController.createCoin);
 
 // Coin Image
-router.get('/coinImages/:coin_id', CoinImageController.getCoinImages)
+router.get('/coinImages/:coin_id', CoinImageController.getCoinImagesByCoinId)
 router.post('/coinImage', CoinImageController.createCoinImage);
 
 // Coin Mintmark

@@ -4,8 +4,10 @@ class ShapeDAO {
 
     table_name = 'shape';
 
-    async getMintmarks() {
-        return db(this.table_name).select();
+    async getShapes() {
+        return db(this.table_name)
+            .select()
+            .orderBy('name');
     }
 
     async createShape(name) {

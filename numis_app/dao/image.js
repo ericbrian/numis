@@ -4,7 +4,7 @@ class ImageDAO {
 
     table_name = 'image';
 
-    async getGrades() {
+    async getImages() {
         return db(this.table_name).select();
     }
 
