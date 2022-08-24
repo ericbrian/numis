@@ -4,9 +4,14 @@ const ApiError = require('../error/ApiError');
 
 class MintmarkController {
 
-    async getMintmarksForCountry(req, res, next) {
+    async getMintmarksForMint(req, res, next) {
+
+        const mint_id = req.params.mint_id;
+        if (isNaN(mint_id))
+            throw new Error('Mint Id is required!')
+
         try {
-            const items = await mintmarkService.getMintmarksForCountry(req.params.country_id);
+            const items = await mintmarkService.getMintmarksForMinty(mint_id);
             res.status(200).json(items);
         } catch (err) {
             next(ApiError.internal(appStrings.GENERIC_500));

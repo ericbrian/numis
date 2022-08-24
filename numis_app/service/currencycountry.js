@@ -2,8 +2,12 @@ const currencyCountryDAO = require('../dao/currencycountry');
 
 class CurrencyCountryService {
 
-    getCurrencyCountries() {
-        return currencyCountryDAO.getCurrencyCountries();
+    getCurrencyCountries(currency_id) {
+        return currencyCountryDAO.getCurrencyCountries(currency_id);
+    }
+
+    getCountryCurrencies(country_id) {
+        return currencyCountryDAO.getCountryCurrencies(country_id);
     }
 
     createCurrencyCountry(currencyCountryDto) {

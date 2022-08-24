@@ -3,9 +3,15 @@ const appStrings = require('../appstrings');
 const ApiError = require('../error/ApiError');
 
 class CoinsetCoinController {
-    async getCoinsetcoins(_req, res, next) {
+
+    async getCoinsetcoins(req, res, next) {
+
+        const coinset_id = req.params.coinset_id;
+        if (isNaN(coinset_id))
+            throw new Error('Coin Id is required!')
+
         try {
-            const items = await coinsetCoinService.getCoinsetcoins();
+            const items = await coinsetCoinService.getCoinsetCoins(coinset_id);
             res.status(200).json(items);
         } catch (err) {
             next(ApiError.internal(appStrings.GENERIC_500));

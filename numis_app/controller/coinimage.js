@@ -6,13 +6,14 @@ class CoinImageController {
 
     // GET /coinImages/:coin_id
     async getCoinImagesByCoinId(req, res, next) {
+
+        const coin_id = req.params.coin_id;
+        if (isNaN(coin_id))
+            throw new Error('Coin Id is required!')
+
         try {
-            const coin_id = req.params.coin_id;
-            if (isNaN(coin_id))
-                throw new Error('Coin Id is required!')
             const items = await coinImageService.getCoinImagesByCoinId(coin_id);
             res.status(200).json(items);
-
         } catch (err) {
             let msg = appStrings.GENERIC_500;
             if (err.message)

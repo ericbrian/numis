@@ -4,8 +4,10 @@ class CoinsetCoinDAO {
 
     table_name = 'coinset_coin';
 
-    async getCoinsetCoins() {
-        return db(this.table_name).select();
+    async getCoinsetCoins(coinset_id) {
+        return db(this.table_name)
+            .where({ coinset_id })
+            .select();
     }
 
     async createCoinsetCoin(coinset_id, coin_id) {

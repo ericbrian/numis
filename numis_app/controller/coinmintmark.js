@@ -5,7 +5,8 @@ const ApiError = require('../error/ApiError');
 class CoinMintmarkController {
 
     // GET /coinMintmarks/:coin_id
-    async getCoinMintmarks(_req, res, next) {
+    async getCoinMintmarks(req, res, next) {
+
         const coin_id = req.params.coin_id;
         if (isNaN(coin_id))
             throw new Error('Coin Id is required!')

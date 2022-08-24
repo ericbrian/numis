@@ -4,8 +4,10 @@ class MintmarkDAO {
 
     table_name = 'mintmark';
 
-    async getMintmarks() {
-        return db(this.table_name).select();
+    async getMintmarksForMint(mint_id) {
+        return db(this.table_name)
+            .where({ mint_id })
+            .select('id', 'mark', 'description', 'mint_id', 'period');
     }
 
     async createMintmark(mark, description, mint_id, period) {

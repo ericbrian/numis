@@ -2,14 +2,24 @@ const db = require("../db/db");
 
 class CurrencyCountryDAO {
 
-    table_name = 'currency_country';
+    async getCurrencyCountries(currency_id) {
+        return db('currency_country as cc')
+            .where({ currency_id })
+            .join('currency as cu', 'cc.currency_id', 'cu.id')
+            .join('country as co', 'cc.country_id', 'co.id')
+            .select('cu.name as currency_name', 'co.name as country_name');
+    }
 
-    async getCurrencyCountries() {
-        return db(this.table_name).select();
+    async getCountryCurrencies(country_id) {
+        return db('currency_country as cc')
+            .where({ country_id })
+            .join('currency as cu', 'cc.currency_id', 'cu.id')
+            .join('country as co', 'cc.country_id', 'co.id')
+            .select('cu.name as currency_name', 'co.name as country_name');
     }
 
     async createCurrencyCountry(currency_id, country_id) {
-        const [id] = await db(this.table_name)
+        const [id] = await db('currency_country')
             .insert({
                 currency_id,
                 country_id

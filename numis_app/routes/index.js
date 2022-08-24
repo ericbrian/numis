@@ -73,7 +73,7 @@ router.get('/mints', MintController.getMints)
 router.post('/mint', MintController.createMint);
 
 // Mintmark
-router.get('/mintmarks/:country_id', MintmarkController.getMintmarksForCountry)
+router.get('/mintmarks/:mint_id', MintmarkController.getMintmarksForMint)
 router.post('/mintmark', MintmarkController.createMintmark);
 
 // Shape
