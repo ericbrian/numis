@@ -77,8 +77,9 @@ exports.up = function (knex) {
             table.decimal('face_value', 8, 2);
             table.string('pretty_face_value');
             table.string('series_or_theme_name');
-            table.string('obverse');
-            table.string('reverse');
+            table.string('common_name');
+            table.text('obverse');
+            table.text('reverse');
             table.string('edge');
             table.string('years');
             table.string('composition');
@@ -132,12 +133,12 @@ exports.up = function (knex) {
             table.increments('id');
             table.integer('coin_id').notNullable();
             table.foreign('coin_id').references('coin.id');
-            table.integer('coinset_id').notNullable();
+            table.integer('coinset_id');
             table.foreign('coinset_id').references('coinset.id');
-            table.string('years').notNullable();
-            table.integer('mint_id');
+            table.string('year').notNullable();
+            table.integer('mint_id').comment('If a mintmark is set, then no mint should be set.');
             table.foreign('mint_id').references('mint.id');
-            table.integer('mintmark_id');
+            table.integer('mintmark_id').comment('If a mint is set, then no mintmark should be set.');
             table.foreign('mintmark_id').references('mintmark.id');
             table.integer('grade_id');
             table.foreign('grade_id').references('grade.id');
