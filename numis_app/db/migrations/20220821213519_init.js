@@ -144,6 +144,18 @@ exports.up = function (knex) {
             table.boolean('is_cleaned').defaultTo('false');
             table.integer('owner_id').comment('No user info in the db yet!!!');
             table.timestamps(true, true);
+        })
+        .createTable('user', table => {
+            table.increments('id');
+            table.string('surname').notNullable();
+            table.string('given_name').notNullable();
+            table.string('display_name').notNullable();
+            table.string('email').notNullable();
+            table.string('profile_image_url');
+
+            table.string('provider').notNullable();
+            table.string('provider_provided_id').notNullable();
+            table.timestamps(true, true);
         });
 };
 
@@ -153,6 +165,7 @@ exports.up = function (knex) {
  */
 exports.down = function (knex) {
     return knex.schema
+        .dropTable('user')
         .dropTable('collection')
         .dropTable('coinset')
         .dropTable('coin_image')
