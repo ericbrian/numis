@@ -12,7 +12,7 @@ const CollectionController = require('../controller/collection');
 const CountryController = require('../controller/country');
 const CurrencyController = require('../controller/currency');
 const CurrencyCountryController = require('../controller/currencycountry');
-const DesignerController = require('../controller/designer');
+const EngraverController = require('../controller/engraver');
 const GradeController = require('../controller/grade');
 const ImageController = require('../controller/image');
 const MintController = require('../controller/mint');
@@ -57,8 +57,8 @@ router.get('/countryCurrencies/:country_id', CurrencyCountryController.getCountr
 router.post('/currencyCountry', CurrencyCountryController.createCurrencyCountry);
 
 // Designer
-router.get('/designers', DesignerController.getDesigners)
-router.post('/designer', DesignerController.createDesigner);
+router.get('/engravers', EngraverController.getEngravers)
+router.post('/engraver', EngraverController.createEngraver);
 
 // Grade
 router.get('/grades', GradeController.getGrades)
@@ -81,10 +81,15 @@ router.get('/shapes', ShapeController.getShapes)
 router.post('/shape', ShapeController.createShape);
 
 //
-router.get('/', function (_req, res, _next) {
+router.get('/', function (req, res, _next) {
     res.render('index', {
-        title: appstrings.app_name
+        title: appstrings.app_name,
+        user: req.user
     });
+});
+
+router.get('/protected', (_req, res) => {
+    res.send("Hello");
 });
 
 module.exports = router;
