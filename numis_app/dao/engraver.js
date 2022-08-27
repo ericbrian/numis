@@ -2,14 +2,12 @@ const db = require("../db/db");
 
 class DesignerDAO {
 
-    table_name = 'designer';
-
-    async getDesigners() {
-        return db(this.table_name)
+    async getEngravers() {
+        return db(designer)
             .select('id', 'name', 'comment');
     }
 
-    async createDesigner(name, comment) {
+    async createEngraver(name, comment) {
         const [id] = await db('designer')
             .insert({
                 name,
