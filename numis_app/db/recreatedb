@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker image prune
+docker image prune -f
 
 npx knex migrate:down --knexfile knexfile.js
 npx knex migrate:latest --knexfile knexfile.js
