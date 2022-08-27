@@ -8,8 +8,10 @@ class CollectionDAO {
         return db(this.table_name).select();
     }
 
-    async createCollection(coin_id, coinset_id, years, mint_id, mintmark_id, grade_id,
-        condition, paid_amount, paid_currency_id, sourced_from, sourced_when, is_cleaned) {
+    async createCollection(collectionDto) {
+        const { coin_id, coinset_id, years, mint_id, mintmark_id, grade_id,
+            condition, paid_amount, paid_currency_id, sourced_from,
+            sourced_when, is_cleaned } = collectionDto;
         const [id] = await db(this.table_name)
             .insert({
                 coin_id,
