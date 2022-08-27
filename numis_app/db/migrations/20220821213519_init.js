@@ -83,9 +83,9 @@ exports.up = function (knex) {
             table.string('edge');
             table.string('years');
             table.string('composition');
-            table.decimal('weight_grams', 4, 2);
-            table.decimal('diameter_mm', 4, 2);
-            table.string('comments');
+            table.decimal('weight_grams', 7, 3);
+            table.decimal('diameter_mm', 7, 3);
+            table.text('comments');
             table.integer('currency_id');
             table.foreign('currency_id').references('currency.id');
             table.integer('country_id');
@@ -119,14 +119,7 @@ exports.up = function (knex) {
         .createTable('coinset', table => {
             table.increments('id');
             table.string('name').notNullable();
-            table.timestamps(true, true);
-        })
-        .createTable('coinset_coin', table => {
-            table.increments('id');
-            table.integer('coinset_id').notNullable();
-            table.foreign('coinset_id').references('coinset.id');
-            table.integer('coin_id').notNullable();
-            table.foreign('coin_id').references('coin.id');
+            table.integer('owner_id').comment('No user info in the db yet!!!');
             table.timestamps(true, true);
         })
         .createTable('collection', table => {
@@ -149,6 +142,7 @@ exports.up = function (knex) {
             table.string('sourced_from');
             table.date('sourced_when');
             table.boolean('is_cleaned').defaultTo('false');
+            table.integer('owner_id').comment('No user info in the db yet!!!');
             table.timestamps(true, true);
         });
 };
@@ -160,7 +154,6 @@ exports.up = function (knex) {
 exports.down = function (knex) {
     return knex.schema
         .dropTable('collection')
-        .dropTable('coinset_coin')
         .dropTable('coinset')
         .dropTable('coin_image')
         .dropTable('coin_mintmark')
