@@ -66,7 +66,7 @@ exports.up = function (knex) {
             table.foreign('country_id').references('country.id');
             table.timestamps(true, true);
         })
-        .createTable('designer', table => {
+        .createTable('engraver', table => {
             table.increments('id');
             table.string('name').notNullable().unique();
             table.text('comment');
@@ -94,10 +94,10 @@ exports.up = function (knex) {
             table.foreign('mint_id').references('mint.id');
             table.integer('shape_id');
             table.foreign('shape_id').references('shape.id');
-            table.integer('designer_obv_id');
-            table.foreign('designer_obv_id').references('designer.id');
-            table.integer('designer_rev_id');
-            table.foreign('designer_rev_id').references('designer.id');
+            table.integer('engraver_obv_id');
+            table.foreign('engraver_obv_id').references('engraver.id');
+            table.integer('engraver_rev_id');
+            table.foreign('engraver_rev_id').references('engraver.id');
             table.timestamps(true, true);
         })
         .createTable('coin_mintmark', table => {
@@ -158,7 +158,7 @@ exports.down = function (knex) {
         .dropTable('coin_image')
         .dropTable('coin_mintmark')
         .dropTable('coin')
-        .dropTable('designer')
+        .dropTable('engraver')
         .dropTable('currency_country')
         .dropTable('currency')
         .dropTable('grade')
